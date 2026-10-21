@@ -1,17 +1,9 @@
 import type { Metadata } from "next"
 import { buildRouteMetadata } from "@/lib/seo/route-metadata"
-import dynamic from "next/dynamic"
 import { PublicLayout } from "@/components/layout/public-layout"
 import { SearchForm } from "./search-form"
 import { TicketFormTrigger } from "./ticket-form-trigger"
-
-const TicketLookup = dynamic(
-  () => import("./ticket-lookup").then((module) => module.TicketLookup),
-  { ssr: false }
-)
-
-export const metadata: Metadata = buildRouteMetadata("/support")
-
+import { TicketLookup } from "./ticket-lookup-client"
 import Link from "next/link"
 
 const quickLinks = [
@@ -37,6 +29,8 @@ const quickLinks = [
     iconColor: "text-premium-gold bg-premium-gold/15",
   },
 ]
+
+export const metadata: Metadata = buildRouteMetadata("/support")
 
 export default function SupportPage() {
   return (

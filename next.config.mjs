@@ -70,6 +70,7 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  turbopack: {},
   experimental: {
     optimizePackageImports: ["lucide-react", "date-fns", "@stellar/stellar-base"],
   },
